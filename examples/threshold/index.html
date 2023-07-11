@@ -38,7 +38,7 @@
 
 		plotWithOptions(0);
 
-		$(".controls button").click(function (e) {
+		$(".controls button").on("click", function (e) {
 			e.preventDefault();
 			var t = parseFloat($(this).text().replace("Threshold at ", ""));
 			plotWithOptions(t);

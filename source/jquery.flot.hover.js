@@ -54,11 +54,11 @@ the tooltip from webcharts).
             }
 
             if (o.grid.clickable) {
-                eventHolder.bind("click", onClick);
+                eventHolder.on("click", onClick);
             }
 
             if (o.grid.hoverable) {
-                eventHolder.bind("mousemove", onMouseMove);
+                eventHolder.on("mousemove", onMouseMove);
 
                 // Use bind, rather than .mouseleave, because we officially
                 // still support jQuery 1.2.6, which doesn't define a shortcut
@@ -66,16 +66,16 @@ the tooltip from webcharts).
                 // was fixed somewhere around 1.3.x.  We can return to using
                 // .mouseleave when we drop support for 1.2.6.
 
-                eventHolder.bind("mouseleave", onMouseLeave);
+                eventHolder.on("mouseleave", onMouseLeave);
             }
         }
 
         function shutdown(plot, eventHolder) {
             eventHolder[0].removeEventListener('tap', generatePlothoverEvent);
             eventHolder[0].removeEventListener('touchevent', triggerCleanupEvent);
-            eventHolder.unbind("mousemove", onMouseMove);
-            eventHolder.unbind("mouseleave", onMouseLeave);
-            eventHolder.unbind("click", onClick);
+            eventHolder.off("mousemove", onMouseMove);
+            eventHolder.off("mouseleave", onMouseLeave);
+            eventHolder.off("click", onClick);
             highlights = [];
         }
 

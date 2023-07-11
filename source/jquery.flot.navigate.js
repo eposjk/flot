@@ -414,19 +414,19 @@ can set the default in the options.
         function bindEvents(plot, eventHolder) {
             var o = plot.getOptions();
             if (o.zoom.interactive) {
-                eventHolder.mousewheel(onMouseWheel);
+                eventHolder.on("mousewheel", onMouseWheel);
             }
 
             if (o.pan.interactive) {
                 plot.addEventHandler("dragstart", onDragStart, eventHolder, 0);
                 plot.addEventHandler("drag", onDrag, eventHolder, 0);
                 plot.addEventHandler("dragend", onDragEnd, eventHolder, 0);
-                eventHolder.bind("mousedown", onMouseDown);
-                eventHolder.bind("mouseup", onMouseUp);
+                eventHolder.on("mousedown", onMouseDown);
+                eventHolder.on("mouseup", onMouseUp);
             }
 
-            eventHolder.dblclick(onDblClick);
-            eventHolder.click(onClick);
+            eventHolder.on("dblclick", onDblClick);
+            eventHolder.on("click", onClick);
         }
 
         plot.zoomOut = function(args) {
@@ -745,14 +745,14 @@ can set the default in the options.
         }
 
         function shutdown(plot, eventHolder) {
-            eventHolder.unbind("mousewheel", onMouseWheel);
-            eventHolder.unbind("mousedown", onMouseDown);
-            eventHolder.unbind("mouseup", onMouseUp);
-            eventHolder.unbind("dragstart", onDragStart);
-            eventHolder.unbind("drag", onDrag);
-            eventHolder.unbind("dragend", onDragEnd);
-            eventHolder.unbind("dblclick", onDblClick);
-            eventHolder.unbind("click", onClick);
+            eventHolder.off("mousewheel", onMouseWheel);
+            eventHolder.off("mousedown", onMouseDown);
+            eventHolder.off("mouseup", onMouseUp);
+            eventHolder.off("dragstart", onDragStart);
+            eventHolder.off("drag", onDrag);
+            eventHolder.off("dragend", onDragEnd);
+            eventHolder.off("dblclick", onDblClick);
+            eventHolder.off("click", onClick);
 
             if (panTimeout) clearTimeout(panTimeout);
         }

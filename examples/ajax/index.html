@@ -40,7 +40,7 @@
 
 		var alreadyFetched = {};
 
-		$("button.fetchSeries").click(function () {
+		$("button.fetchSeries").on("click", function () {
 
 			var button = $(this);
 
@@ -76,7 +76,7 @@
 
 		// Initiate a recurring data update
 
-		$("button.dataUpdate").click(function () {
+		$("button.dataUpdate").on("click", function () {
 
 			data = [];
 			alreadyFetched = {};
@@ -122,7 +122,7 @@
 
 		// Load the first series by default, so we don't have an empty plot
 
-		$("button.fetchSeries:first").click();
+		$("button.fetchSeries:first").trigger("click");
 
 		// Add the Flot version string to the footer
 

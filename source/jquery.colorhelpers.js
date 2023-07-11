@@ -141,7 +141,7 @@
         }
 
         // Otherwise, we're most likely dealing with a named color
-        var name = $.trim(str).toLowerCase();
+        var name = String.prototype.trim(str).toLowerCase();
         if (name === "transparent") {
             return m(255, 255, 255, 0);
         } else {

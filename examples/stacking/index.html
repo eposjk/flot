@@ -59,13 +59,13 @@
 
 		plotWithOptions();
 
-		$(".stackControls button").click(function (e) {
+		$(".stackControls button").on("click", function (e) {
 			e.preventDefault();
 			stack = $(this).text() == "With stacking" ? true : null;
 			plotWithOptions();
 		});
 
-		$(".graphControls button").click(function (e) {
+		$(".graphControls button").on("click", function (e) {
 			e.preventDefault();
 			bars = $(this).text().indexOf("Bars") != -1;
 			lines = $(this).text().indexOf("Lines") != -1;

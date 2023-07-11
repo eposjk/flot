@@ -954,7 +954,7 @@ Licensed under the MIT license.
             octx = overlay.context;
 
             // define which element we're listening for events on
-            eventHolder = $(overlay.element).unbind();
+            eventHolder = $(overlay.element).off();
 
             // If we're re-using a plot object, shut down the old one
 
@@ -980,8 +980,8 @@ Licensed under the MIT license.
             eventList.push({"event": event, "handler": handler, "eventHolder": eventHolder, "priority": priority});
             eventList.sort((a, b) => b.priority - a.priority);
             eventList.forEach(eventData => {
-                eventData.eventHolder.unbind(eventData.event, eventData.handler);
-                eventData.eventHolder.bind(eventData.event, eventData.handler);
+                eventData.eventHolder.off(eventData.event, eventData.handler);
+                eventData.eventHolder.on(eventData.event, eventData.handler);
             });
 
             eventManager[key] = eventList;
@@ -1677,7 +1677,7 @@ Licensed under the MIT license.
             if (oticks == null || (typeof oticks === "number" && oticks > 0)) {
                 ticks = axis.tickGenerator(axis, plot);
             } else if (oticks) {
-                if ($.isFunction(oticks)) {
+                if (typeof oticks === 'function') {
                 // generate the ticks
                     ticks = oticks(axis);
                 } else {
@@ -1862,7 +1862,7 @@ Licensed under the MIT license.
                 axes;
 
             if (markings) {
-                if ($.isFunction(markings)) {
+                if (typeof markings === 'function') {
                     axes = plot.getAxes();
                     // xmin etc. is backwards compatibility, to be
                     // removed in the future

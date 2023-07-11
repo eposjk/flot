@@ -101,12 +101,12 @@
 			}
 		}
 
-		$("#placeholder").bind("plothover", function (event, pos, item) {
+		$("#placeholder").on("plothover", function (event, pos, item) {
 			latestPosition = pos;
 			if (!updateLegendTimeout) {
 				updateLegendTimeout = setTimeout(updateLegend, 50);
 			}
-		}).bind("plotclick", function (event, pos, item) {
+		}).on("plotclick", function (event, pos, item) {
 		    plot.lockCrosshair(pos);
 		});;
 

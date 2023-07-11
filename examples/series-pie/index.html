@@ -128,9 +128,9 @@
 
 		var placeholder = $("#placeholder");
 
-		$("#example-1").click(function() {
+		$("#example-1").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Default pie chart");
 			$("#description").text("The default pie chart with no options set.");
@@ -154,9 +154,9 @@
 			]);
 		});
 
-		$("#example-2").click(function() {
+		$("#example-2").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Default without legend");
 			$("#description").text("The default pie chart when the legend is disabled. Since the labels would normally be outside the container, the chart is resized to fit.");
@@ -186,9 +186,9 @@
 			]);
 		});
 
-		$("#example-3").click(function() {
+		$("#example-3").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Custom Label Formatter");
 			$("#description").text("Added a semi-transparent background to the labels and a custom labelFormatter function.");
@@ -236,9 +236,9 @@
 			]);
 		});
 
-		$("#example-4").click(function() {
+		$("#example-4").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Label Radius");
 			$("#description").text("Slightly more transparent label backgrounds and adjusted the radius values to place them within the pie.");
@@ -286,9 +286,9 @@
 			]);
 		});
 
-		$("#example-5").click(function() {
+		$("#example-5").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Label Styles #1");
 			$("#description").text("Semi-transparent, black-colored label background.");
@@ -338,9 +338,9 @@
 			]);
 		});
 
-		$("#example-6").click(function() {
+		$("#example-6").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Label Styles #2");
 			$("#description").text("Semi-transparent, black-colored label background placed at pie edge.");
@@ -390,9 +390,9 @@
 			]);
 		});
 
-		$("#example-7").click(function() {
+		$("#example-7").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Hidden Labels");
 			$("#description").text("Labels can be hidden if the slice is less than a given percentage of the pie (10% in this case).");
@@ -436,9 +436,9 @@
 			]);
 		});
 
-		$("#example-8").click(function() {
+		$("#example-8").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Combined Slice");
 			$("#description").text("Multiple slices less than a given percentage (5% in this case) of the pie can be combined into a single, larger slice.");
@@ -476,9 +476,9 @@
 			]);
 		});
 
-		$("#example-9").click(function() {
+		$("#example-9").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Rectangular Pie");
 			$("#description").text("The radius can also be set to a specific size (even larger than the container itself).");
@@ -520,9 +520,9 @@
 			]);
 		});
 
-		$("#example-10").click(function() {
+		$("#example-10").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Tilted Pie");
 			$("#description").text("The pie can be tilted at an angle.");
@@ -580,9 +580,9 @@
 			]);
 		});
 
-		$("#example-11").click(function() {
+		$("#example-11").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Donut Hole");
 			$("#description").text("A donut hole can be added.");
@@ -608,9 +608,9 @@
 			]);
 		});
 
-		$("#example-12").click(function() {
+		$("#example-12").on("click", function() {
 
-			placeholder.unbind();
+			placeholder.off();
 
 			$("#title").text("Interactivity");
 			$("#description").text("The pie can be made interactive with hover and click events.");
@@ -641,7 +641,7 @@
 				"});"
 			]);
 
-			placeholder.bind("plothover", function(event, pos, obj) {
+			placeholder.on("plothover", function(event, pos, obj) {
 
 				if (!obj) {
 					return;
@@ -651,7 +651,7 @@
 				$("#hover").html("<span style='font-weight:bold; color:" + obj.series.color + "'>" + obj.series.label + " (" + percent + "%)</span>");
 			});
 
-			placeholder.bind("plotclick", function(event, pos, obj) {
+			placeholder.on("plotclick", function(event, pos, obj) {
 
 				if (!obj) {
 					return;
@@ -664,7 +664,7 @@
 
 		// Show the initial default chart
 
-		$("#example-1").click();
+		$("#example-1").trigger("click");
 
 		// Add the Flot version string to the footer
 

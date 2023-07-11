@@ -84,7 +84,7 @@
 
 		// show pan/zoom messages to illustrate events
 
-		placeholder.bind("plotpan", function (event, plot) {
+		placeholder.on("plotpan", function (event, plot) {
 			var axes = plot.getAxes();
 			$(".message").html("Panning to x: "  + axes.xaxis.min.toFixed(2)
 			+ " &ndash; " + axes.xaxis.max.toFixed(2)
@@ -92,7 +92,7 @@
 			+ " &ndash; " + axes.yaxis.max.toFixed(2));
 		});
 
-		placeholder.bind("plotzoom", function (event, plot) {
+		placeholder.on("plotzoom", function (event, plot) {
 			var axes = plot.getAxes();
 			$(".message").html("Zooming to x: "  + axes.xaxis.min.toFixed(2)
 			+ " &ndash; " + axes.xaxis.max.toFixed(2)
@@ -104,7 +104,7 @@
 
 		$("<div class='button' style='right:20px;top:20px'>zoom out</div>")
 			.appendTo(placeholder)
-			.click(function (event) {
+			.on("click", function (event) {
 				event.preventDefault();
 				plot.zoomOut();
 			});
@@ -117,7 +117,7 @@
 		function addArrow(dir, right, top, offset) {
 			$("<img class='button' src='arrow-" + dir + ".gif' style='right:" + right + "px;top:" + top + "px'>")
 				.appendTo(placeholder)
-				.click(function (e) {
+				.on("click", function (e) {
 					e.preventDefault();
 					plot.pan(offset);
 				});

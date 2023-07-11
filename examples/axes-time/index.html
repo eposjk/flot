@@ -24,13 +24,13 @@
 			xaxis: { mode: "time", timeBase: "milliseconds"}
 		});
 
-		$("#whole").click(function () {
+		$("#whole").on("click", function () {
 			$.plot("#placeholder", [d], {
 				xaxis: { mode: "time", timeBase: "milliseconds" }
 			});
 		});
 
-		$("#nineties").click(function () {
+		$("#nineties").on("click", function () {
 			$.plot("#placeholder", [d], {
 				xaxis: {
 					mode: "time",
@@ -42,7 +42,7 @@
 			});
 		});
 
-		$("#latenineties").click(function () {
+		$("#latenineties").on("click", function () {
 			$.plot("#placeholder", [d], {
 				xaxis: {
 					mode: "time",
@@ -55,7 +55,7 @@
 			});
 		});
 
-		$("#ninetyninequarters").click(function () {
+		$("#ninetyninequarters").on("click", function () {
 			$.plot("#placeholder", [d], {
 				xaxis: {
 					mode: "time",
@@ -68,7 +68,7 @@
 			});
 		});
 
-		$("#ninetynine").click(function () {
+		$("#ninetynine").on("click", function () {
 			$.plot("#placeholder", [d], {
 				xaxis: {
 					autoScale: "none",
@@ -81,7 +81,7 @@
 			});
 		});
 
-		$("#lastweekninetynine").click(function () {
+		$("#lastweekninetynine").on("click", function () {
 			$.plot("#placeholder", [d], {
 				xaxis: {
 					autoScale: "none",
@@ -95,7 +95,7 @@
 			});
 		});
 
-		$("#lastdayninetynine").click(function () {
+		$("#lastdayninetynine").on("click", function () {
 			$.plot("#placeholder", [d], {
 				xaxis: {
 					autoScale: "none",

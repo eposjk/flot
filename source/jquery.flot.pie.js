@@ -118,19 +118,19 @@ More detail and specific examples can be found in the included HTML file.
             var options = plot.getOptions();
             if (options.series.pie.show) {
                 if (options.grid.hoverable) {
-                    eventHolder.unbind("mousemove").mousemove(onMouseMove);
-                    eventHolder.bind("mouseleave", onMouseMove);
+                    eventHolder.off("mousemove").on("mousemove", onMouseMove);
+                    eventHolder.on("mouseleave", onMouseMove);
                 }
                 if (options.grid.clickable) {
-                    eventHolder.unbind("click").click(onClick);
+                    eventHolder.off("click").on("click", onClick);
                 }
             }
         });
 
         plot.hooks.shutdown.push(function (plot, eventHolder) {
-            eventHolder.unbind("mousemove", onMouseMove);
-            eventHolder.unbind("mouseleave", onMouseMove);
-            eventHolder.unbind("click", onClick);
+            eventHolder.off("mousemove", onMouseMove);
+            eventHolder.off("mouseleave", onMouseMove);
+            eventHolder.off("click", onClick);
             highlights = [];
         });
 
@@ -186,11 +186,11 @@ More detail and specific examples can be found in the included HTML file.
                 // new one; this is more efficient and preserves any extra data
                 // that the user may have stored in higher indexes.
 
-                if ($.isArray(value) && value.length === 1) {
+                if (Array.isArray(value) && value.length === 1) {
                     value = value[0];
                 }
 
-                if ($.isArray(value)) {
+                if (Array.isArray(value)) {
                     // Equivalent to $.isNumeric() but compatible with jQuery < 1.7
                     if (!isNaN(parseFloat(value[1])) && isFinite(value[1])) {
                         value[1] = +value[1];

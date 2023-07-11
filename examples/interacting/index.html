@@ -76,7 +76,7 @@
 			opacity: 0.80
 		}).appendTo("body");
 
-		$("#placeholder").bind("plothover", function (event, pos, item) {
+		$("#placeholder").on("plothover", function (event, pos, item) {
 
 			if (!pos.x || !pos.y) {
 				return;
@@ -101,11 +101,11 @@
 			}
 		});
 
-		$("#placeholder").bind("plothovercleanup", function (event, pos, item) {
+		$("#placeholder").on("plothovercleanup", function (event, pos, item) {
 				$("#tooltip").hide();
 		});
 
-		$("#placeholder").bind("plotclick", function (event, pos, item) {
+		$("#placeholder").on("plotclick", function (event, pos, item) {
 			if (item) {
 				$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 				plot.highlight(item.series, item.datapoint);

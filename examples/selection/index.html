@@ -78,7 +78,7 @@
 
 		var placeholder = $("#placeholder");
 
-		placeholder.bind("plotselected", function (event, ranges) {
+		placeholder.on("plotselected", function (event, ranges) {
 
 			$("#selection").text(ranges.xaxis.from.toFixed(1) + " to " + ranges.xaxis.to.toFixed(1));
 
@@ -96,17 +96,17 @@
 			}
 		});
 
-		placeholder.bind("plotunselected", function (event) {
+		placeholder.on("plotunselected", function (event) {
 			$("#selection").text("");
 		});
 
 		var plot = $.plot(placeholder, data, options);
 
-		$("#clearSelection").click(function () {
+		$("#clearSelection").on("click", function () {
 			plot.clearSelection();
 		});
 
-		$("#setSelection").click(function () {
+		$("#setSelection").on("click", function () {
 			plot.setSelection({
 				xaxis: {
 					from: 1994,

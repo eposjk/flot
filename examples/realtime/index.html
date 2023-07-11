@@ -56,7 +56,7 @@
 		// Set up the control widget
 
 		var updateInterval = 30;
-		$("#updateInterval").val(updateInterval).change(function () {
+		$("#updateInterval").val(updateInterval).on("change", function () {
 			var v = $(this).val();
 			if (v && !isNaN(+v)) {
 				updateInterval = +v;
